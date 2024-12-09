@@ -1,0 +1,19 @@
+<div class="flex justify-end items-center mt-4 gap-2">
+  <button (click)="onPreviousPage()" 
+    [disabled]="currentPage() === 0"
+    class="p-2 rounded hover:bg-gray-100"
+    [ngClass]="{'opacity-50 cursor-not-allowed': currentPage() === 0, 'cursor-pointer': currentPage() > 0}">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+
+  <span class="text-gray-700 mb-2">
+    Page {{currentPage() + 1}} of {{totalPages()}}
+  </span>
+
+  <button (click)="onNextPage()" 
+    [disabled]="currentPage() >= totalPages() - 1"
+    class="p-2 rounded hover:bg-gray-100"
+    [ngClass]="{'opacity-50 cursor-not-allowed': currentPage() >= totalPages() - 1, 'cursor-pointer': currentPage() < totalPages() - 1}">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>
