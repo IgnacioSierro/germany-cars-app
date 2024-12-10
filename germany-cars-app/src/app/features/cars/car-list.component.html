@@ -1,10 +1,21 @@
 @if(cars().length){
-<div class="flex justify-center">
-    <div class="w-2/3 mt-4">
-        <app-table [cars]="cars()" [displayedColumns]="displayedColumns()" [currentPage]="currentPage()"
-            [pageSize]="pageSize()"/>
+    <div class="flex flex-col items-center">
+        <div class="flex justify-between w-2/3 mt-4">
+            <div class="w-1/3 bg-white p-4 rounded shadow mr-2">
+                <app-fuel-chart [cars]="cars()" class="h-full w-full" />
+            </div>
+            <div class="w-1/3 bg-white p-4 rounded shadow mx-2">
+                <app-gear-chart [cars]="cars()" class="h-full w-full" />
+            </div>
+            <div class="w-1/3 bg-white p-4 rounded shadow mx-2">
+                <app-offer-type-chart [cars]="cars()" class="h-full w-full" />
+            </div>
+        </div>
+        <div class="w-2/3 mt-4 bg-white p-4 rounded shadow">
+            <app-table [cars]="cars()" [displayedColumns]="displayedColumns()" [currentPage]="currentPage()"
+                [pageSize]="pageSize()" />
+        </div>
     </div>
-</div>
 }@else {
-<app-spinner/>
+    <app-spinner />
 }

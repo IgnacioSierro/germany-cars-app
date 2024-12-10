@@ -1,43 +1,49 @@
-<div class="bg-white shadow-lg rounded-lg">
-  <table mat-table [dataSource]="pagedData()" class="mat-elevation-z8 w-full">
-    <ng-container matColumnDef="make">
-      <th mat-header-cell *matHeaderCellDef> Make </th>
-      <td mat-cell *matCellDef="let car"> {{ car.make }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="model">
-      <th mat-header-cell *matHeaderCellDef> Model </th>
-      <td mat-cell *matCellDef="let car"> {{ car.model }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="mileage">
-      <th mat-header-cell *matHeaderCellDef> Mileage </th>
-      <td mat-cell *matCellDef="let car"> {{ car.mileage }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="fuel">
-      <th mat-header-cell *matHeaderCellDef> Fuel </th>
-      <td mat-cell *matCellDef="let car"> {{ car.fuel }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="gear">
-      <th mat-header-cell *matHeaderCellDef> Gear </th>
-      <td mat-cell *matCellDef="let car"> {{ car.gear }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="offertype">
-      <th mat-header-cell *matHeaderCellDef> Offer Type </th>
-      <td mat-cell *matCellDef="let car"> {{ car.offertype }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef> Price (EUR) </th>
-      <td mat-cell *matCellDef="let car"> {{ car.price }} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns();"></tr>
-  </table>
+<div>
+  <div class="mb-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+    <select class="p-2 border border-gray-300 rounded w-full" [(ngModel)]="filters.make" (change)="onFilterChange()">
+      <option value="">Filter by Make</option>
+      <option *ngFor="let make of filterOptions.makes" [value]="make">{{ make }}</option>
+    </select>
+    <select class="p-2 border border-gray-300 rounded w-full" [(ngModel)]="filters.fuel" (change)="onFilterChange()">
+      <option value="">Filter by Fuel</option>
+      <option *ngFor="let fuel of filterOptions.fuels" [value]="fuel">{{ fuel }}</option>
+    </select>
+    <select class="p-2 border border-gray-300 rounded w-full" [(ngModel)]="filters.gear" (change)="onFilterChange()">
+      <option value="">Filter by Gear</option>
+      <option *ngFor="let gear of filterOptions.gears" [value]="gear">{{ gear }}</option>
+    </select>
+    <select class="p-2 border border-gray-300 rounded w-full" [(ngModel)]="filters.offertype"
+      (change)="onFilterChange()">
+      <option value="">Filter by Offer Type</option>
+      <option *ngFor="let offerType of filterOptions.offerTypes" [value]="offerType">{{ offerType }}</option>
+    </select>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white">
+      <thead>
+        <tr>
+          <th class="py-2 px-4 border-b text-left">Make</th>
+          <th class="py-2 px-4 border-b text-left">Model</th>
+          <th class="py-2 px-4 border-b text-left">Mileage</th>
+          <th class="py-2 px-4 border-b text-left">Fuel</th>
+          <th class="py-2 px-4 border-b text-left">Gear</th>
+          <th class="py-2 px-4 border-b text-left">Offer Type</th>
+          <th class="py-2 px-4 border-b text-left">Price (EUR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of pagedData()">
+          <td class="py-2 px-4 border-b">{{ car.make }}</td>
+          <td class="py-2 px-4 border-b">{{ car.model }}</td>
+          <td class="py-2 px-4 border-b">{{ car.mileage }}</td>
+          <td class="py-2 px-4 border-b">{{ car.fuel }}</td>
+          <td class="py-2 px-4 border-b">{{ car.gear }}</td>
+          <td class="py-2 px-4 border-b">{{ car.offertype }}</td>
+          <td class="py-2 px-4 border-b">{{ car.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <app-paginator [currentPage]="currentPage()" [totalPages]="totalPages()" (previousPage)="previousPage()"
-    (nextPage)="nextPage()"/>
+    (nextPage)="nextPage()" />
 </div>
