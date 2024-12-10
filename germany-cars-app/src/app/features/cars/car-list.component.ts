@@ -8,13 +8,23 @@ import { SpinnerComponent } from '../../shared/ui/spinner/spinner.component';
 import { FuelChartComponent } from './charts/fuel-chart/fuel-chart.component';
 import { GearChartComponent } from './charts/gear-chart/gear-chart.component';
 import { OfferTypeChartComponent } from './charts/offer-type-chart/offer-type-chart.component';
+import { ChatbotComponent } from '../chatbot/chatbot.component';
 
 @Component({
   selector: 'app-car-list',
   templateUrl: './car-list.component.html',
   styleUrls: ['./car-list.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatProgressSpinnerModule, TableComponent, SpinnerComponent, FuelChartComponent, GearChartComponent, OfferTypeChartComponent],
+  imports: [
+    CommonModule,
+    MatProgressSpinnerModule,
+    TableComponent,
+    SpinnerComponent,
+    FuelChartComponent,
+    GearChartComponent,
+    OfferTypeChartComponent,
+    ChatbotComponent
+  ],
   providers: [CarService]
 })
 export class CarListComponent implements OnInit {

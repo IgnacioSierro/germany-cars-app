@@ -17,7 +17,7 @@ export class CarService {
             const headers = lines[0].split(',');
 
             // Limitar a los primeros 10 elementos
-            const limit = Math.min(100, lines.length - 1);
+            const limit = Math.min(10, lines.length - 1);
 
             for (let i = 1; i <= lines.length - 1; i++) {
                 const data = lines[i].split(',');
