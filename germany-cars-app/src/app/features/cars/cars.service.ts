@@ -1,7 +1,8 @@
 import { Injectable, signal, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Car } from './car.interface';
 import { environment } from '../../../environment';
+import { Filters } from './search-form/filters.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -21,5 +22,16 @@ export class CarService {
                     console.error('Error fetching cars:', error);
                 }
             });
+    }
+
+    searchCars(filters: Filters) {
+        const params = new HttpParams()
+            .set('make', filters.make || '')
+            .set('model', filters.model || '')
+            .set('minPrice', filters.minPrice?.toString() || '')
+            .set('maxPrice', filters.maxPrice?.toString() || '')
+            .set('minYear', filters.minYear?.toString() || '');
+
+        return this._http.get<Car[]>(`${this.apiUrl}/search`, { params });
     }
 }

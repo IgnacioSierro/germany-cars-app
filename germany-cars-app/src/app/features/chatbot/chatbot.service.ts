@@ -1,4 +1,3 @@
-// src/app/services/chat.service.ts
 import { Injectable, WritableSignal, signal } from '@angular/core';
 
 @Injectable({

@@ -1,4 +1,3 @@
-// src/app/chatbot/chatbot.component.ts
 import { Component, OnInit, inject, Signal, signal, input } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { ChatService } from './chatbot.service';
