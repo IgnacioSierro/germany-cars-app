@@ -83,7 +83,7 @@ export class TableComponent implements OnInit {
       return (!this.filters.make || car.make === this.filters.make) &&
         (!this.filters.fuel || car.fuel === this.filters.fuel) &&
         (!this.filters.gear || car.gear === this.filters.gear) &&
-        (!this.filters.offertype || car.offertype === this.filters.offertype);
+        (!this.filters.offertype || car.offerType === this.filters.offertype);
     });
   }
 
@@ -98,7 +98,7 @@ export class TableComponent implements OnInit {
       makes.add(car.make);
       fuels.add(car.fuel);
       gears.add(car.gear);
-      offerTypes.add(car.offertype);
+      offerTypes.add(car.offerType);
     });
 
     this.filterOptions.makes = Array.from(makes);

@@ -1,9 +1,12 @@
 export interface Car {
-    mileage: number;
-    make: string;
-    model: string;
-    fuel: string;
-    gear: string;
-    offertype: string;
-    price: number;
-  }
+  id?: number;
+  mileage: number;
+  make: string;
+  model: string;
+  fuel: string;
+  gear: string;
+  offerType: string;
+  price: number;
+  hp?: number;
+  year?: number;
+}

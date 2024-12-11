@@ -71,7 +71,7 @@ export class OfferTypeChartComponent implements OnInit {
 
   private processChartData() {
     const fuelTypes = this.cars().reduce((acc, car) => {
-      acc[car.offertype] = (acc[car.offertype] || 0) + 1;
+      acc[car.offerType] = (acc[car.offerType] || 0) + 1;
       return acc;
     }, {} as Record<string, number>);
 

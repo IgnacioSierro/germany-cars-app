@@ -72,7 +72,7 @@ export class ChatService {
   }
 
   private getOfferStats(cars: any[]): string {
-    const offers = cars.filter(car => car.offertype === 'Used');
+    const offers = cars.filter(car => car.offerType === 'Used');
     const priceRange = offers.reduce((acc, car) => ({
       min: Math.min(acc.min, car.price),
       max: Math.max(acc.max, car.price)
