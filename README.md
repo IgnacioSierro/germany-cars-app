@@ -4,7 +4,7 @@ A full-stack application for analyzing car market data using .NET 9 API and Angu
 
 ## Features
 
-### Frontend (Angular 17)
+### Frontend (Angular 19)
 - Interactive data visualization with Charts.js
 - Real-time search functionality
 - Quick stats popup for detailed make analysis
@@ -13,7 +13,7 @@ A full-stack application for analyzing car market data using .NET 9 API and Angu
 - Advanced filtering system
 - Modern UI with Tailwind CSS
 
-### Backend (.NET 8)
+### Backend (.NET 9)
 - RESTful API endpoints
 - SQL Server database integration
 - Entity Framework Core
@@ -23,7 +23,7 @@ A full-stack application for analyzing car market data using .NET 9 API and Angu
 ## Tech Stack
 
 ### Frontend
-- Angular 17
+- Angular 19
 - TypeScript
 - Tailwind CSS
 - Chart.js
@@ -31,7 +31,7 @@ A full-stack application for analyzing car market data using .NET 9 API and Angu
 - Standalone Components
 
 ### Backend
-- .NET 8
+- .NET 9
 - Entity Framework Core
 - SQL Server Express
 - LINQ
