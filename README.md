@@ -43,7 +43,7 @@ A full-stack application for analyzing car market data using .NET 9 API and Angu
 - GET /api/cars/search - Search cars with filters
 - GET /api/cars/quick-stats/{make} - Get statistics for specific make
 
-### Features Details
+## Features Details
 - Search Functionality
 - Make/Model filtering
 - Price range selection
