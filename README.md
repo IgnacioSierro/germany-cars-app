@@ -36,3 +36,29 @@ A full-stack application for analyzing car market data using .NET 9 API and Angu
 - SQL Server Express
 - LINQ
 - Swagger UI
+
+### API Endpoints
+#### Cars
+- GET /api/cars - Get all cars
+- GET /api/cars/search - Search cars with filters
+- GET /api/cars/quick-stats/{make} - Get statistics for specific make
+
+### Features Details
+- Search Functionality
+- Make/Model filtering
+- Price range selection
+- Year filtering
+- Real-time results
+- Charts
+- Fuel type distribution
+- Gear type analysis
+- Offer type breakdown
+- Quick Stats
+- Average price by make
+- Model count
+- Popular fuel types
+- Price ranges
+- Virtual Assistant
+- Predefined queries
+- Statistical analysis
+- Dynamic responses
