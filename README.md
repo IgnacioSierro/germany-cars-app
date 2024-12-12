@@ -1,6 +1,6 @@
 # Cars Analysis Platform
 
-A full-stack application for analyzing car market data using .NET 8 API and Angular 17.
+A full-stack application for analyzing car market data using .NET 9 API and Angular 19.
 
 ## Features
 
