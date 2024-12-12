@@ -87,7 +87,7 @@ export class FuelChartComponent implements OnInit {
       return acc;
     }, {} as Record<string, number>);
 
-    const threshold = 5; // Define your threshold here
+    const threshold = 5;
     const filteredFuelTypes = Object.entries(fuelTypes).filter(([key, value]) => value >= threshold);
 
     this.chartData.labels = filteredFuelTypes.map(([key]) => key);

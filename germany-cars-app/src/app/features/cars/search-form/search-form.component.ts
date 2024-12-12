@@ -33,6 +33,6 @@ export class SearchFormComponent {
       maxPrice: null,
       minYear: null
     };
-    this.search.emit(this.filters); // Emit cleared filters to update results
+    this.search.emit(this.filters);
   }
 }
