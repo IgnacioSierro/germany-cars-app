@@ -37,8 +37,8 @@ A full-stack application for analyzing car market data using .NET 9 API and Angu
 - LINQ
 - Swagger UI
 
-### API Endpoints
-#### Cars
+## API Endpoints
+### Cars
 - GET /api/cars - Get all cars
 - GET /api/cars/search - Search cars with filters
 - GET /api/cars/quick-stats/{make} - Get statistics for specific make
