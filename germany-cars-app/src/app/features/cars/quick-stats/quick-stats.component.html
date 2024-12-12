@@ -1,0 +1,22 @@
+<div class="fixed bottom-4 right-4 w-80 bg-white rounded-xl shadow-lg p-4 transform transition-transform hover:scale-105">
+  <div class="flex justify-between items-center mb-3">
+      <h3 class="text-lg">{{make()}} Quick Stats</h3>
+      <button (click)="close()" class="text-gray-500 hover:text-gray-700">×</button>
+  </div>
+  @if(stats()) {
+      <div class="space-y-2">
+          <div class="flex justify-between">
+              <span class="text-gray-600">Avg Price:</span>
+              <span class="font-medium">€{{stats()?.averagePrice}}</span>
+          </div>
+          <div class="flex justify-between">
+              <span class="text-gray-600">Models:</span>
+              <span class="font-medium">{{stats()?.totalModels}}</span>
+          </div>
+          <div class="flex justify-between">
+              <span class="text-gray-600">Popular Fuel:</span>
+              <span class="font-medium">{{stats()?.popularFuelType}}</span>
+          </div>
+      </div>
+  }
+</div>

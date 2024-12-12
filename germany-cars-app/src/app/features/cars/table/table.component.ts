@@ -6,13 +6,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { Car } from '../car.interface';
 import { PaginatorComponent } from '../paginator/paginator.component';
+import { QuickStatsComponent } from '../quick-stats/quick-stats.component';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, MatTableModule, MatProgressSpinnerModule, MatIconModule, PaginatorComponent],
+  imports: [CommonModule, FormsModule, MatTableModule, MatProgressSpinnerModule, MatIconModule, PaginatorComponent, QuickStatsComponent],
 })
 export class TableComponent implements OnInit {
   private readonly injector = inject(Injector);
@@ -22,6 +23,7 @@ export class TableComponent implements OnInit {
   currentPage = model.required<number>(); // Model for the current page
   totalPages = signal<number>(0); // Signal for the total number of pages
   pagedData = signal<Car[]>([]); // Signal for the paginated data
+
   filters = {
     make: '',
     fuel: '',
@@ -34,6 +36,7 @@ export class TableComponent implements OnInit {
     gears: [] as string[],
     offerTypes: [] as string[]
   }; // Object to hold filter options
+  selectedMake = signal<string | null>(null); // Signal for the selected make
 
   constructor() {
     // Run the effect in the injection context
@@ -53,6 +56,10 @@ export class TableComponent implements OnInit {
     this.updatePagedData(this.applyFilters());
     this.populateFilterOptions();
   }
+
+  showQuickStats(make: string) {
+    this.selectedMake.set(make);
+}
 
   previousPage() {
     // Navigate to the previous page if not on the first page

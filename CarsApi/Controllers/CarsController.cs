@@ -48,4 +48,30 @@ public class CarsController : ControllerBase
 
         return await query.ToListAsync();
     }
+
+    [HttpGet("quick-stats/{make}")]
+    public async Task<ActionResult<object>> GetQuickStats(string make)
+    {
+        var stats = await _context.Cars
+            .Where(c => c.Make == make)
+            .GroupBy(c => c.Make)
+            .Select(g => new
+            {
+                AveragePrice = (int) g.Average(c => c.Price),
+                LowestPrice = g.Min(c => c.Price),
+                HighestPrice = g.Max(c => c.Price),
+                TotalModels = g.Select(c => c.Model).Distinct().Count(),
+                PopularFuelType = g.GroupBy(c => c.Fuel)
+                                 .OrderByDescending(x => x.Count())
+                                 .First().Key
+            })
+            .FirstOrDefaultAsync();
+
+        if (stats == null)
+        {
+            return NotFound();
+        }
+
+        return stats;
+    }
 }

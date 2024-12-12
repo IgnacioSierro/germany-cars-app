@@ -34,4 +34,8 @@ export class CarService {
 
         return this._http.get<Car[]>(`${this.apiUrl}/search`, { params });
     }
+
+    getQuickStats(make: string) {
+        return this._http.get<any>(`${this.apiUrl}/quick-stats/${make}`);
+    }
 }
